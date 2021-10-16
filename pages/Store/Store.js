@@ -14,7 +14,7 @@ Page({
     console.log(this.data.searchBarInput)
   },
   redirectToHome(){
-    my.navigateTo({
+    my.redirectTo({
       url: '/pages/Home/Home'
     });
   }

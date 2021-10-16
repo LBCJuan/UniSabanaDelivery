@@ -14,12 +14,12 @@ Page({
     console.log(this.data.searchBarInput)
   },
   redirectToStore(){
-    my.navigateTo({
+    my.redirectTo({
       url: '/pages/Store/Store'
     });
   },
   redirectToHome(){
-    my.navigateTo({
+    my.redirectTo({
       url: '/pages/Home/Home'
     });
   }
