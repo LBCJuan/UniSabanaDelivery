@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/Home/Home",
+    "pages/Store/Store"
   ],
   "window": {
-    "defaultTitle": "My App"
+    "defaultTitle": "UniSabana Delivery"
   }
 }

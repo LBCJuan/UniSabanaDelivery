@@ -1,0 +1,18 @@
+<view class="container">
+<view class="navbar">
+  <image class="logo-img" mode="scaleToFill" src="https://i.ibb.co/x7SkPDZ/Unisabana-Logo.png" onTap="redirectToHome"/>
+  <input class="search-bar" placeholder="¿Dónde quieres comer?" type="text" onInput="onChange"/>
+  <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" onTap="onTap"/>
+</view>
+<view class="history-hidden">
+  < Volver
+</view>
+<view class="title">
+  <text>Tiendas disponibles</text>
+</view>
+<view class="stores_container">
+  <view class="store_card" a:for="{{store_items}}" onTap="redirectToStore">
+    {{item}}
+  </view>  
+</view>
+</view>

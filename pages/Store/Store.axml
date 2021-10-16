@@ -1,0 +1,18 @@
+<view class="container">
+<view class="navbar">
+  <image class="logo-img" mode="scaleToFill" src="https://i.ibb.co/x7SkPDZ/Unisabana-Logo.png" onTap="redirectToHome"/>
+  <input class="search-bar" placeholder="¿Que deseas comer?" type="text" onInput="onChange"/>
+  <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" onTap="onTap"/>
+</view>
+<view class="history" onTap="redirectToHome">
+  < Volver
+</view>
+<view class="title">
+  <text>Categorías disponibles</text>
+</view>
+<view class="categories_container">
+  <view class="category_card" a:for="{{store_items}}">
+    {{item}}
+  </view>  
+</view>
+</view>
