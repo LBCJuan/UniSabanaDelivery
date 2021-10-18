@@ -11,8 +11,39 @@
   <text>Categorías disponibles</text>
 </view>
 <view class="categories_container">
-  <view class="category_card" a:for="{{store_items}}">
-    {{item}}
+  <view class="category_container" a:for="{{store_items}}" a:for-item="i">
+    <text>{{i.title}}</text>
+    <view class="product-card" a:for="{{i.items}}" a:for-item="j" id="{{j.id}}">
+      <view class="product">
+          <view class="description">
+            <text class="title">{{j.name}}</text>
+            <text class="desc">{{j.desc}}</text>
+            <text class="price">${{j.price}}</text>
+          </view>
+          <view class="details">
+            <image mode="scaleToFill" src="{{j.img}}"/>
+            <view class="counter">
+              <view a:if="{{j.cantidad === 0}}">
+                <view onTap="addToCart({{j.id}})">
+                  Agregar
+                </view>
+              </view>
+              <view a:else>
+                <view>
+                  -
+                </view>
+                <view>
+                  {{j.cantidad}}
+                </view>
+                <view>
+                  +
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      <view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"> </view>
+    </view>
   </view>  
 </view>
 </view>
