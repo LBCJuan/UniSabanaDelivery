@@ -1,7 +1,7 @@
 Page({
   data: {
     searchBarInput: '',
-    store_items: [1,2,3,4,5,6,7,8,9,10]
+    store_items: ['Embarcadero', 'Punto sandwich', 'Cafe de la bolsa', 'Kioskos']
   },
   onLoad() {},
   onTap(){
@@ -13,14 +13,16 @@ Page({
     })
     console.log(this.data.searchBarInput)
   },
-  redirectToStore(){
+  redirectToStore(e){
+    console.log(e.currentTarget.id)
     my.redirectTo({
-      url: '/pages/Store/Store'
+      url: `/pages/Store/Store?store=${e.currentTarget.id}`,
+      category: e.currentTarget.id
     });
   },
-  redirectToHome(){
+  redirectToHome(e){
     my.redirectTo({
-      url: '/pages/Home/Home'
+      url: '/pages/Home/Home',
     });
   }
 });

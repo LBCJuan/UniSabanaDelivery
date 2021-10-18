@@ -8,7 +8,7 @@
   < Volver
 </view>
 <view class="title">
-  <text>Categorías disponibles</text>
+  <text>{{storeTitle}}</text>
 </view>
 <view class="categories_container">
   <view class="category_container" a:for="{{store_items}}" a:for-item="i">
@@ -24,7 +24,7 @@
             <image mode="scaleToFill" src="{{j.img}}"/>
             <view class="counter">
               <view a:if="{{j.cantidad === 0}}">
-                <view onTap="addToCart({{j.id}})">
+                <view id="{{j.id}}" data-storeId="{{i.id}}" onTap="addToCart">
                   Agregar
                 </view>
               </view>

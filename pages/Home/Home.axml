@@ -11,8 +11,8 @@
   <text>Tiendas disponibles</text>
 </view>
 <view class="stores_container">
-  <view class="store_card" a:for="{{store_items}}" onTap="redirectToStore">
-    {{item}}
+  <view id="{{i}}" class="store_card" a:for="{{store_items}}" a:for-item="i" onTap="redirectToStore">
+    {{i}}
   </view>  
 </view>
 </view>
