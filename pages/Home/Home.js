@@ -4,9 +4,6 @@ Page({
     store_items: ['Embarcadero', 'Punto sandwich', 'Cafe de la bolsa', 'Kioskos']
   },
   onLoad() {},
-  onTap(){
-    console.log('clicked!')
-  },
   onChange(e){
     this.setData({
       searchBarInput: e.detail.value
@@ -24,5 +21,10 @@ Page({
     my.redirectTo({
       url: '/pages/Home/Home',
     });
+  },
+  redirectToCart(){
+    my.redirectTo({
+      url: '/pages/Cart/Cart'
+    })
   }
 });

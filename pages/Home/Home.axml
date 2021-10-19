@@ -15,4 +15,7 @@
     {{i}}
   </view>  
 </view>
+<view class="cart-button">
+  <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" onTap="redirectToCart"/>
+</view>
 </view>
