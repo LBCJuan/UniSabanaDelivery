@@ -37,4 +37,12 @@ Page({
       ],
     })
   },
+  redirectToLogin(){
+    console.log('e')
+  },
+  redirectToHistory(){
+    my.redirectTo({
+      url: '/pages/History/History'
+    })
+  }
 });

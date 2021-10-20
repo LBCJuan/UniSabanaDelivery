@@ -1,0 +1,24 @@
+<view class='container'>
+<view class="navbar">
+  <image class="logo-img" mode="scaleToFill" src="https://i.ibb.co/x7SkPDZ/Unisabana-Logo.png" onTap="redirectToHome"/>
+  <input class="search-bar" placeholder="Buscar por tienda" type="text" onInput="onChange"/>
+  <image class="profile-img" mode="scaleToFill" src="https://i.ibb.co/WyMmmfN/icons8-usuario-masculino-en-c-rculo-90.png" onTap="redirectToHistory"/>
+</view>
+<view class="history" onTap="redirectToHome">
+  < Volver
+</view>
+<view class="history-container">
+  <text class="title">Historial de compras</text>
+  <view class="items">
+    <view class="item-card" a:for="{{items}}">
+      <view class="item-logo">
+      </view>
+      <text class="item-id">ID: QDAS131FDZF1</text>
+      <view class="details">
+        <text>Fecha de compra: 00/00/00:00:00</text>
+        <text>Total pagado: $7800</text>
+      </view>
+    </view>
+  </view>
+</view>
+</view>

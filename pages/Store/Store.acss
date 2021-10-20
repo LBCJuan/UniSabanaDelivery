@@ -27,7 +27,7 @@
   font-size: 0.9em;
 }
 
-.navbar .cart-img{
+.navbar .profile-img{
   width: 40px;
   height: 40px;
 }

@@ -2,7 +2,7 @@
 <view class="navbar">
   <image class="logo-img" mode="scaleToFill" src="https://i.ibb.co/x7SkPDZ/Unisabana-Logo.png" onTap="redirectToHome"/>
   <input class="search-bar" placeholder="¿Dónde quieres comer?" type="text" onInput="onChange"/>
-  <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" onTap="onTap"/>
+  <image class="profile-img" mode="scaleToFill" src="https://i.ibb.co/WyMmmfN/icons8-usuario-masculino-en-c-rculo-90.png" onTap="redirectToHistory"/>
 </view>
 <view class="history-hidden">
   < Volver
@@ -11,11 +11,14 @@
   <text>Tiendas disponibles</text>
 </view>
 <view class="stores_container">
-  <view id="{{i}}" class="store_card" a:for="{{store_items}}" a:for-item="i" onTap="redirectToStore">
-    {{i}}
+  <view data-storeCode="{{i.codigo}}" class="store_card" a:for="{{store_items}}" a:for-item="i" onTap="redirectToStore"> 
+    <image mode="scaleToFill" src="{{i.imagen}}"/>
   </view>  
 </view>
-<view class="cart-button">
-  <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" onTap="redirectToCart"/>
+<view a:if="{{error}}" class="stores-error">
+  {{error}}
 </view>
+<button class="cart-button" onTap="redirectToCart">
+  <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" />
+</button>
 </view>

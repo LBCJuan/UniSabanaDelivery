@@ -1,0 +1,9 @@
+<view class="container">
+  <text class="title">Datos del cliente</text>
+  <view class="user-info"> 
+    <input placeholder="Teléfono" data-id="tel" onInput="updateInfo"/>
+    <input placeholder="Nombre completo" data-id="name" onInput="updateInfo"/>
+    <textarea placeholder="Ubicación actual, descripción de donde te encuentras" data-id="location" onInput="updateInfo"></textarea>
+  </view>
+  <button class="home-button" size="default" type="primary" onTap="redirectToHome">Ingresar</button>
+</view>
