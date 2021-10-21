@@ -6,7 +6,7 @@ Page({
   },
   onLoad() {
     my.request({
-      url: 'http://192.168.0.103:4700/PerfilTienda/buscar',
+      url: 'https://api-sabanadelivery.herokuapp.com/PerfilTienda/buscar',
       headers: {},
       method: 'GET',
       data: {},

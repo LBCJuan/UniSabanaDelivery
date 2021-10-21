@@ -20,7 +20,7 @@ Page({
   },
   onLoad(query) {
     my.request({
-      url: `http://192.168.0.103:4700/PerfilTienda/tienda?codigo=${query.store}`,
+      url: `https://api-sabanadelivery.herokuapp.com/PerfilTienda/tienda?codigo=${query.store}`,
       headers: {},
       method: 'GET',
       data: {},
@@ -41,7 +41,7 @@ Page({
       }
     });
     my.request({
-      url: `http://192.168.0.103:4700/Item/buscar?codigo=${query.store}`,
+      url: `https://api-sabanadelivery.herokuapp.com/Item/buscar?codigo=${query.store}`,
       headers: {},
       method: 'GET',
       data: {},
