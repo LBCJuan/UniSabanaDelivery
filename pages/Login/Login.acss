@@ -6,12 +6,13 @@
 }
 
 .title{
-  margin: 10% auto;
+  margin: 7% auto;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #00225A;
   font-size: 1.5em;
+  font-weight: bold;
 }
 
 .user-info{
@@ -43,12 +44,30 @@
   background-color: #00225A;
   border-radius: 20px;
   color: #fff;
-  margin: 10% auto;
+  margin: 7% auto;
   text-align: center;
-  border: none
+  border: none;
+  font-size: 1.2em;
 }
 
 .home-button:active{
   background-color: #00225A;
   color: #fff;
+}
+
+.logo {
+  width: 250px;
+  height: 250px;
+  display:block;
+  margin: 10% auto 0% auto;
+}
+
+.register-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20% auto;
+  text-align: center;
+  font-size: 1.1em;
+  color: #00225A;
 }
