@@ -2,7 +2,7 @@
 <view class="navbar">
   <image class="logo-img" mode="scaleToFill" src="https://i.ibb.co/x7SkPDZ/Unisabana-Logo.png" onTap="redirectToHome"/>
   <input class="search-bar" placeholder="¿Que deseas comer?" type="text" onInput="onChange"/>
-  <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" onTap="onTap"/>
+  <image class="profile-img" mode="scaleToFill" src="https://i.ibb.co/WyMmmfN/icons8-usuario-masculino-en-c-rculo-90.png" onTap="redirectToHistory"/>
 </view>
 <view class="history" onTap="redirectToHome">
   < Volver
@@ -47,5 +47,5 @@
   <text class="title">Total a pagar:</text>
   <text class="price">$2400</text>
 </view>
-<button class="confirm-button" size="default" type="primary">Confirmar pedido</button>
+<button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido</button>
 </view>

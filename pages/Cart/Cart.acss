@@ -27,7 +27,7 @@
   font-size: 0.9em;
 }
 
-.navbar .cart-img{
+.navbar .profile-img{
   width: 40px;
   height: 40px;
 }
@@ -155,4 +155,9 @@
   margin: 5% auto;
   text-align: center;
   border: none
+}
+
+.confirm-button:active{
+  background-color: #00225A;
+  color: #fff;
 }
