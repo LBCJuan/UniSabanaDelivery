@@ -18,12 +18,12 @@
     <view class="product-card" a:for="{{i.items}}" a:for-item="j" id="{{j.id}}">
       <view class="product">
           <view class="description">
-            <text class="title">{{j.name}}</text>
-            <text class="desc">{{j.desc}}</text>
-            <text class="price">${{j.price}}</text>
+            <text class="title">{{j.nombre}}</text>
+            <text class="desc">{{j.descripcion}}</text>
+            <text class="price">${{j.precio}}</text>
           </view>
           <view class="details">
-            <image mode="scaleToFill" src="{{j.img}}"/>
+            <image mode="scaleToFill" src="{{j.imagen}}"/>
             <view class="counter">
               <view a:if="{{j.cantidad === 0}}">
                 <view data-storeId="{{i.id}}" data-itemId="{{j.id}}" onTap="addToCart">

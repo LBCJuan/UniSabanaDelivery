@@ -2,21 +2,6 @@ Page({
   data: {
     storeTitle: '',
     searchBarInput: '',
-    store_items: [
-      {id: '0', 
-      title: 'Platos principales', 
-      items: [
-        {id: 0, name: 'Churrasco', desc: 'Churrasco con papas', price: '7500', img: 'https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2019/01/el-churrasco-que-es.jpg', cantidad: 0}, 
-        {id: 1, name: 'Hamburguesa', desc: 'Hamburguesa con papas y bebida', price: '5500', img: 'https://www.saborusa.com/wp-content/uploads/2019/10/Rompe-la-rutina-con-una-suculenta-hamburguesa-con-queso-Foto-destacada.png', cantidad: 0}]
-      }, 
-      {id: '1', 
-      title: 'Bebidas', 
-      items: [
-        {id: 2, name: 'Coca-Cola 400ml', desc: 'Coca-Cola 400ml', price: '2500', img: 'https://metrocolombiafood.vteximg.com.br/arquivos/ids/308035-750-750/7702535011089.jpg?v=637547053098970000', cantidad: 0}, 
-        {id: 3, name: 'Limonada', desc: 'Limonado', price: '2500', img: 'https://www.pequerecetas.com/wp-content/uploads/2021/05/limonada-como-se-hace.jpg', cantidad: 0}]
-      }
-    ],
-    error: ''
   },
   onLoad(query) {
     my.request({
@@ -51,6 +36,7 @@ Page({
         this.setData({
           error: result.data.length > 0 ? '' : 'Lo sentimos, no hay tiendas disponibles por el momento.'
         })
+        this.updateItems(result.data)
       },
       fail: () => {
         this.setData({
@@ -61,6 +47,27 @@ Page({
         
       }
     });
+  },
+  group(xs, key) {
+    return xs.reduce(function(rv, x) {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+  },
+  updateItems(data){
+    let updatedItems = []
+    let groupedItems = Object.values(this.group(data, "categoria"))
+    for (let i = 0; i < groupedItems.length; i++) {
+      for (let j = 0; j < groupedItems[i].length; j++) {
+        groupedItems[i][j] = {...groupedItems[i][j], id: j, cantidad: 0}
+      }
+    }
+    for (let i = 0; i < groupedItems.length; i++) {
+      updatedItems[i] = {id: i, title: groupedItems[i][0].categoria, items: groupedItems[i]}
+    }
+    this.setData({
+      store_items: updatedItems
+    })
   },
   onChange(){
   },

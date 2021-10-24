@@ -6,7 +6,7 @@ Page({
   },
   onLoad() {
     my.request({
-      url: 'https://api-sabanadelivery.herokuapp.com/PerfilTienda/buscar',
+      url: 'http://192.168.0.103:4700/PerfilTienda/buscar',
       headers: {},
       method: 'GET',
       data: {},
@@ -34,7 +34,6 @@ Page({
     })
   },
   redirectToStore(e){
-    console.log(e.currentTarget.id)
     my.redirectTo({
       url: `/pages/Store/Store?store=${e.currentTarget.dataset.storeCode}`,
       category: e.currentTarget.id
