@@ -40,14 +40,24 @@
   padding: 20px;
   font-weight: bold;
 }
-.pedidosCursocontainer{
-  margin: 5% 0;
+.pedidosCursoTitle{
+  margin: auto;
   display: flex;
-  justify-content: left;
-  align-items: left;
+  justify-content: center;
+  align-items: center;
   color: #00225A;
   font-size: 1.2em;
   padding: 20px;
+  font-weight: bold;
+}
+.pedidosCursocontainer{
+  margin: auto;
+  width: 90%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  background-color:	#FFFFFF;
+  border-radius: 20px;
 }
 
 .pedidosRecibidoscontainer{
@@ -58,19 +68,10 @@
   align-items: center;
   background-color:	#FFFFFF;
   border-radius: 20px;
-
 }
 
 
-.pedidosCursocontainer{
-  margin: 5% 0;
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-  background-color:	#FFFFFF;
 
-}
 
 
 .pedidosRecibidos{
@@ -83,16 +84,15 @@
 }
 
 
-.pedidosEnCurso{
+.pedidosCurso{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-
-
 }
+
 
 
 
@@ -104,8 +104,14 @@
   align-items: flex-start;
   flex-direction: column;
   padding: 3%;
-
-
+}
+.pedidosCurso-card{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 3%;
 }
 .pedidosRecibidos-card .product{
   display: flex;
@@ -113,7 +119,21 @@
   align-items: center;
   width: 100%;
 }
+.pedidosCurso-card .product{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 .pedidosRecibidos-card .product .description{
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+
+}
+.pedidosCurso-card .product .description{
   width: 70%;
   display: flex;
   justify-content: flex-start;
@@ -129,7 +149,23 @@
   float:left
 }
 
+.pedidosCurso-card .product .description .desc{
+  margin: 0% 0;
+  width: 75%;
+  line-height: 1em;
+  float:left
+}
+
 .pedidoAceptarRechazar{
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float:right
+
+}
+
+.pedidoFinalizar{
   width: 40%;
   display: flex;
   justify-content: center;
@@ -151,13 +187,31 @@
   bottom: 40px;
   left: 40px;
 
-
 }
 
 .accept-button .accept-img{
   width: 30px;
   height: 30px;
 }
+.final-button{
+  margin: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height:40px;
+  background-color: #00225A;
+  border-radius: 100%;
+  bottom: 40px;
+  left: 40px;
+
+}
+
+.final-button .final-img{
+  width: 30px;
+  height: 30px;
+}
+
 
 .reject-button{
   margin: 5%;
