@@ -13,7 +13,7 @@ Page({
   redirectToHome() {
     if (this.data.clave && this.data.telefono) {
       my.request({
-        url: `http://192.168.20.22:4700/PerfilUsuario/verificar`,
+        url: `https://api-sabanadelivery.herokuapp.com/PerfilUsuario/verificar`,
         headers: {},
         method: 'POST',
         data: {clave: this.data.clave, telefono: this.data.telefono},
