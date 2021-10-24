@@ -15,18 +15,54 @@ Page({
         {id: 2, name: 'Coca-Cola 400ml', desc: 'Coca-Cola 400ml', price: '2500', img: 'https://metrocolombiafood.vteximg.com.br/arquivos/ids/308035-750-750/7702535011089.jpg?v=637547053098970000', cantidad: 0}, 
         {id: 3, name: 'Limonada', desc: 'Limonado', price: '2500', img: 'https://www.pequerecetas.com/wp-content/uploads/2021/05/limonada-como-se-hace.jpg', cantidad: 0}]
       }
-    ]
+    ],
+    error: ''
   },
   onLoad(query) {
-    this.setData({
-      storeTitle: query.store
-    })
+    my.request({
+      url: `https://api-sabanadelivery.herokuapp.com/PerfilTienda/tienda?codigo=${query.store}`,
+      headers: {},
+      method: 'GET',
+      data: {},
+      timeout: 30000,
+      dataType: '',
+      success: (result) => {
+        this.setData({
+          storeTitle: result.data[0].nombre
+        })
+      },
+      fail: () => {
+        this.setData({
+          error: 'Error getting stores'
+        })
+      },
+      complete: () => {
+        
+      }
+    });
+    my.request({
+      url: `https://api-sabanadelivery.herokuapp.com/Item/buscar?codigo=${query.store}`,
+      headers: {},
+      method: 'GET',
+      data: {},
+      timeout: 30000,
+      dataType: '',
+      success: (result) => {
+        this.setData({
+          error: result.data.length > 0 ? '' : 'Lo sentimos, no hay tiendas disponibles por el momento.'
+        })
+      },
+      fail: () => {
+        this.setData({
+          error: 'Error getting stores'
+        })
+      },
+      complete: () => {
+        
+      }
+    });
   },
-  onChange(e){
-    this.setData({
-      searchBarInput: e.detail.value
-    })
-    console.log(this.data.searchBarInput)
+  onChange(){
   },
   addToCart(e){
     let storeIndex = this.data.store_items.findIndex(obj => obj.id === e.currentTarget.dataset.storeId)
@@ -62,6 +98,11 @@ Page({
   redirectToCart(){
     my.redirectTo({
       url: '/pages/Cart/Cart'
+    })
+  },
+  redirectToHistory(){
+    my.redirectTo({
+      url: '/pages/History/History'
     })
   }
 });
