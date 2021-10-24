@@ -12,32 +12,68 @@ Page({
   },
   redirectToHome() {
     if (this.data.clave && this.data.telefono) {
-      my.request({
-        url: `https://api-sabanadelivery.herokuapp.com/PerfilUsuario/verificar`,
-        headers: {},
-        method: 'POST',
-        data: {clave: this.data.clave, telefono: this.data.telefono},
-        timeout: 30000,
-        dataType: 'JSON',
-        success: (result) => {
-          console.log(result.data)
-          if (result.data[0]) {
-            my.redirectTo({
-              url: '/pages/Home/Home'
+      if (this.data.telefono[0, 1, 2] === "0") {
+        var codigo = this.data.telefono.replace("0", "");
+        my.request({
+          url: `https://api-sabanadelivery.herokuapp.com/PerfilTienda/login`,
+          headers: {},
+          method: 'POST',
+          data: { clave: this.data.clave, telefono: codigo },
+          timeout: 30000,
+          dataType: 'JSON',
+          success: (result) => {
+            if (result.data[0]) {
+              my.redirectTo({
+                url: '/pages/StoreHome/StoreHome'
+              })
+            } else {
+              my.alert({ title: 'Oops', content: "Credenciales incorrectas" });
+              this.setData({
+                telefono: "",
+                clave: ""
+              })
+            }
+          },
+          fail: () => {
+            this.setData({
+              error: 'Ha ocurrido un error'
             })
-          } else {
-            my.alert({ title: 'Oops', content: "Credenciales incorrectas"});
-          }
-        },
-        fail: () => {
-          this.setData({
-            error: 'Ha ocurrido un error'
-          })
-        },
-        complete: () => {
+          },
+          complete: () => {
 
-        }
-      });
+          }
+        });
+      } else {
+        my.request({
+          url: `https://api-sabanadelivery.herokuapp.com/PerfilUsuario/verificar`,
+          headers: {},
+          method: 'POST',
+          data: { clave: this.data.clave, telefono: this.data.telefono },
+          timeout: 30000,
+          dataType: 'JSON',
+          success: (result) => {
+            if (result.data[0]) {
+              my.redirectTo({
+                url: '/pages/Home/Home'
+              })
+            } else {
+              my.alert({ title: 'Oops', content: "Credenciales incorrectas" });
+              this.setData({
+                telefono: "",
+                clave: ""
+              })
+            }
+          },
+          fail: () => {
+            this.setData({
+              error: 'Ha ocurrido un error'
+            })
+          },
+          complete: () => {
+
+          }
+        });
+      }
     }
     else {
       my.alert({ title: 'Oops', content: 'Por favor completa todos los campos' });
