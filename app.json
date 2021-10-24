@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/Home/Home",
-    "pages/Store/Store"
+    "pages/Store/Store",
+    "pages/Cart/Cart"
   ],
   "window": {
     "defaultTitle": "UniSabana Delivery"

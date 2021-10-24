@@ -8,36 +8,32 @@
   < Volver
 </view>
 <view class="title">
-  <text>{{storeTitle}}</text>
+  <text>Resumen del pedido</text>
 </view>
-<view class="categories_container">
-  <view class="category_container" a:for="{{store_items}}" a:for-item="i">
-    <view class="storeTitle-container">
-      <text>{{i.title}}</text>
-    </view>
-    <view class="product-card" a:for="{{i.items}}" a:for-item="j" id="{{j.id}}">
+<view class="order-summary">
+<view class="product-card" a:for="{{items}}" a:for-item="i" id="{{i.id}}">
       <view class="product">
           <view class="description">
-            <text class="title">{{j.name}}</text>
-            <text class="desc">{{j.desc}}</text>
-            <text class="price">${{j.price}}</text>
+            <text class="title">{{i.name}}</text>
+            <text class="desc">{{i.desc}}</text>
+            <text class="price">${{i.price}}</text>
           </view>
           <view class="details">
-            <image mode="scaleToFill" src="{{j.img}}"/>
+            <image mode="scaleToFill" src="{{i.img}}"/>
             <view class="counter">
-              <view a:if="{{j.cantidad === 0}}">
-                <view data-storeId="{{i.id}}" data-itemId="{{j.id}}" onTap="addToCart">
+              <view a:if="{{i.cantidad === 0}}">
+                <view data-itemId="{{i.id}}" onTap="addToCart">
                   Agregar
                 </view>
               </view>
               <view a:else>
-                <view data-storeId="{{i.id}}" data-itemId="{{j.id}}" onTap="removeFromCart">
+                <view data-itemId="{{i.id}}" onTap="removeFromCart">
                   -
                 </view>
                 <view>
-                  {{j.cantidad}}
+                  {{i.cantidad}}
                 </view>
-                <view  data-storeId="{{i.id}}" data-itemId="{{j.id}}" onTap="addToCart">
+                <view  data-itemId="{{i.id}}" onTap="addToCart">
                   +
                 </view>
               </view>
@@ -46,9 +42,10 @@
         </view>
       <view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"> </view>
     </view>
-  </view>  
 </view>
-<view class="cart-button">
-  <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" onTap="redirectToCart"/>
+<view class="costs-summary">
+  <text class="title">Total a pagar:</text>
+  <text class="price">$2400</text>
 </view>
+<button class="confirm-button" size="default" type="primary">Confirmar pedido</button>
 </view>
