@@ -22,7 +22,6 @@ Page({
           timeout: 30000,
           dataType: 'JSON',
           success: (result) => {
-            console.log(result.data)
             if (result.data[0]) {
               my.redirectTo({
                 url: '/pages/StoreHome/StoreHome'
