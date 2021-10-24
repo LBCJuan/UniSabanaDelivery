@@ -28,10 +28,6 @@ Page({
               })
             } else {
               my.alert({ title: 'Oops', content: "Credenciales incorrectas" });
-              this.setData({
-                telefono: "",
-                clave: ""
-              })
             }
           },
           fail: () => {
@@ -58,10 +54,6 @@ Page({
               })
             } else {
               my.alert({ title: 'Oops', content: "Credenciales incorrectas" });
-              this.setData({
-                telefono: "",
-                clave: ""
-              })
             }
           },
           fail: () => {
