@@ -2,7 +2,6 @@ Page({
   data: {
     clave: '',
     telefono: '',
-    error: ''
   },
   onLoad() { },
   redirectToRegister() {
@@ -15,23 +14,14 @@ Page({
       my.request({
         url: `http://192.168.20.22:4700/PerfilUsuario/verificar`,
         headers: {},
-        method: 'POST',
-        data: {clave: this.data.clave, telefono: this.data.telefono},
+        method: 'GET',
+        data: { clave: this.data.clave, telefono: this.data.telefono },
         timeout: 30000,
-        dataType: 'JSON',
+        dataType: '',
         success: (result) => {
-          console.log(result.data)
-          if (result.data[0]) {
-            my.redirectTo({
-              url: '/pages/Home/Home'
-            })
-          } else {
-            my.alert({ title: 'Oops', content: "Credenciales incorrectas"});
-            this.setData({
-              telefono: "",
-              clave: ""
-            })
-          }
+          my.redirectTo({
+            url: '/pages/Home/Home'
+          })
         },
         fail: () => {
           this.setData({
@@ -53,4 +43,4 @@ Page({
       [e.target.dataset.id]: e.detail.value
     })
   }
-});
+})

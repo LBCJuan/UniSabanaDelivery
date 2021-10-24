@@ -4,7 +4,8 @@
     "pages/Home/Home",
     "pages/Store/Store",
     "pages/Cart/Cart",
-    "pages/History/History"
+    "pages/History/History",
+    "pages/Register/Register"
   ],
   "window": {
     "defaultTitle": "UniSabana Delivery"

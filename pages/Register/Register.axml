@@ -1,0 +1,10 @@
+<view class="container">
+<image class="logo" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2Funisabana.png?alt=media&token=3b25c6c4-47ba-45ea-b988-06fc34f9c3d5"/>
+  <text class="title">Regístrate</text>
+  <view class="user-info"> 
+    <input placeholder="Nombre" data-id="nombre" onInput="updateInfo"/>
+    <input placeholder="Teléfono" data-id="telefono" type="number" onInput="updateInfo"/>
+    <input placeholder="Clave" data-id="clave" onInput="updateInfo"/>
+  </view>
+  <button class="home-button" size="default" type="primary" onTap="verificarTelefono">Registrarse</button>
+</view>
