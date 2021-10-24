@@ -12,8 +12,8 @@ Page({
   },
   redirectToHome() {
     if (this.data.clave && this.data.telefono) {
-      if (this.data.telefono[0] === "#") {
-        var codigo = this.data.telefono.replace("#", "");
+      if (this.data.telefono[0, 1, 2] === "0") {
+        var codigo = this.data.telefono.replace("0", "");
         my.request({
           url: `https://api-sabanadelivery.herokuapp.com/PerfilTienda/login`,
           headers: {},
@@ -52,7 +52,6 @@ Page({
           timeout: 30000,
           dataType: 'JSON',
           success: (result) => {
-            console.log(result.data)
             if (result.data[0]) {
               my.redirectTo({
                 url: '/pages/Home/Home'
