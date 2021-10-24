@@ -1,12 +1,11 @@
 Page({
   data: {
-    name: '',
-    tel: '',
-    location: ''
+    clave: '',
+    telefono: '',
   },
   onLoad() {},
   redirectToHome(){
-    if(this.data.name && this.data.tel && this.data.location){
+    if(this.data.clave && this.data.telefono){
       my.redirectTo({
         url: '/pages/Home/Home'
       })
