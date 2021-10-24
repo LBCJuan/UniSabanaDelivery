@@ -2,8 +2,7 @@ Page({
   data: {
     clave: '',
     telefono: '',
-    error: '',
-    nombre: ''
+    error: ''
   },
   onLoad() { },
   redirectToRegister() {
@@ -16,24 +15,22 @@ Page({
       my.request({
         url: `http://192.168.20.22:4700/PerfilUsuario/verificar`,
         headers: {},
-        method: 'GET',
-        data: { clave: "clave1234", telefono: "3187951218" },
+        method: 'POST',
+        data: {clave: this.data.clave, telefono: this.data.telefono},
         timeout: 30000,
-        dataType: '',
+        dataType: 'JSON',
         success: (result) => {
-          this.setData({
-            nombre: result.data,
-            error: result.data.length > 0 ? '' : 'Lo sentimos, no se pudo iniciar sesión'
-          })
-
-          my.alert({ title: 'Oops', content: result});
-
-          if (result.data) {
+          console.log(result.data)
+          if (result.data[0]) {
             my.redirectTo({
               url: '/pages/Home/Home'
             })
           } else {
-            my.alert({ title: 'Oops', content: error });
+            my.alert({ title: 'Oops', content: "Credenciales incorrectas"});
+            this.setData({
+              telefono: "",
+              clave: ""
+            })
           }
         },
         fail: () => {

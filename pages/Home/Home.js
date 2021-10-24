@@ -6,7 +6,7 @@ Page({
   },
   onLoad() {
     my.request({
-      url: 'http://192.168.0.103:4700/PerfilTienda/buscar',
+      url: 'http://192.168.20.22:4700/PerfilTienda/buscar',
       headers: {},
       method: 'GET',
       data: {},
