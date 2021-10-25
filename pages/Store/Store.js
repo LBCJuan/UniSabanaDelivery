@@ -36,7 +36,10 @@ Page({
         this.setData({
           error: result.data.length > 0 ? '' : 'Lo sentimos, no hay tiendas disponibles por el momento.'
         })
-        this.updateItems(result.data)
+        if(result.data.length > 0) {
+          this.updateItems(result.data)
+        }
+        
       },
       fail: () => {
         this.setData({
