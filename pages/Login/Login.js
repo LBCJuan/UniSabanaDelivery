@@ -4,7 +4,9 @@ Page({
     telefono: '',
     error: ''
   },
-  onLoad() { },
+  onLoad() {
+    my.clearStorage();
+  },
   redirectToRegister() {
     my.redirectTo({
       url: '/pages/Register/Register'
@@ -22,16 +24,17 @@ Page({
           timeout: 30000,
           dataType: 'JSON',
           success: (result) => {
+            console.log(result.data)
             if (result.data[0]) {
+              my.setStorageSync({
+                key: 'codigoUsuario',
+                data: result.data[0].codigo
+              });
               my.redirectTo({
                 url: '/pages/StoreHome/StoreHome'
               })
             } else {
               my.alert({ title: 'Oops', content: "Credenciales incorrectas" });
-              this.setData({
-                telefono: "",
-                clave: ""
-              })
             }
           },
           fail: () => {
@@ -53,15 +56,15 @@ Page({
           dataType: 'JSON',
           success: (result) => {
             if (result.data[0]) {
+              my.setStorageSync({
+                key: 'codigoUsuario',
+                data: result.data[0].codigo
+              });
               my.redirectTo({
                 url: '/pages/Home/Home'
               })
             } else {
               my.alert({ title: 'Oops', content: "Credenciales incorrectas" });
-              this.setData({
-                telefono: "",
-                clave: ""
-              })
             }
           },
           fail: () => {

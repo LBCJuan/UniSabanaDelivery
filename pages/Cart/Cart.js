@@ -7,10 +7,34 @@ Page({
         {id: 3, name: 'Limonada', desc: 'Limonado', price: '2500', img: 'https://www.pequerecetas.com/wp-content/uploads/2021/05/limonada-como-se-hace.jpg', cantidad: 0}
     ]
   },
-  onLoad() {},
+  onLoad() {
+    let usuario = my.getStorageSync({
+      key: 'codigoUsuario'
+    });
+    this.getCartItems(usuario)
+  },
   redirectToHome(){
     my.redirectTo({
       url: '/pages/Home/Home'
+    });
+  },
+  getCartItems(usuario){
+    my.request({
+      url: `https://api-sabanadelivery.herokuapp.com/Carrito/buscar?codigo=${usuario.data}`,
+      headers: {},
+      method: 'GET',
+      data: {},
+      timeout: 30000,
+      dataType: 'JSON',
+      success: (result) => {
+        console.log(result.data)
+      },
+      fail: () => {
+        
+      },
+      complete: () => {
+        
+      }
     });
   },
   addToCart(e){
