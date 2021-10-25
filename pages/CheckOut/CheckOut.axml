@@ -1,0 +1,51 @@
+<view class="container">
+<view class="navbar">
+  <image class="logo-img" mode="scaleToFill" src="https://i.ibb.co/x7SkPDZ/Unisabana-Logo.png" onTap="redirectToHome"/>
+  <input class="search-bar" placeholder="¿Que deseas comer?" type="text" onInput="onChange"/>
+  <image class="profile-img" mode="scaleToFill" src="https://i.ibb.co/WyMmmfN/icons8-usuario-masculino-en-c-rculo-90.png" onTap="redirectToHistory"/>
+</view>
+<view class="history" onTap="redirectToHome">
+  < Volver
+</view>
+<view class="title">
+  <text>Resumen del pedido</text>
+</view>
+<view class="order-summary">
+<view class="product-card" a:for="{{items}}" a:for-item="i" id="{{i.id}}">
+      <view class="product">
+          <view class="description">
+            <text class="title">{{i.name}}</text>
+            <text class="desc">{{i.desc}}</text>
+            <text class="price">${{i.price}}</text>
+          </view>
+          <view class="details">
+            <image mode="scaleToFill" src="{{i.img}}"/>
+            <view class="counter">
+              <view a:if="{{i.cantidad === 0}}">
+                <view data-itemId="{{i.id}}" onTap="addToCart">
+                  Agregar
+                </view>
+              </view>
+              <view a:else>
+                <view data-itemId="{{i.id}}" onTap="removeFromCart">
+                  -
+                </view>
+                <view>
+                  {{i.cantidad}}
+                </view>
+                <view  data-itemId="{{i.id}}" onTap="addToCart">
+                  +
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      <view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"> </view>
+    </view>
+</view>
+<view class="costs-summary">
+  <text class="title">Total a pagar:</text>
+  <text class="price">$2400</text>
+</view>
+<button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido</button>
+</view>
