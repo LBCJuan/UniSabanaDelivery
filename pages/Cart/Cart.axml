@@ -40,7 +40,7 @@
 </view>
 <view class="costs-summary">
   <text class="title">Total a pagar:</text>
-  <text class="price">$2400</text>
+  <text class="price">${{totalPrice}}</text>
 </view>
 <button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido</button>
 </view>

@@ -105,6 +105,7 @@ Page({
         ...this.data.store_items.slice(storeIndex+1)
       ]
     })
+    this.saveOnStorage()
   },
   removeFromCart(e){
     let storeIndex = this.data.store_items.findIndex(obj => obj.id === e.currentTarget.dataset.storeId)
@@ -118,6 +119,21 @@ Page({
         ...this.data.store_items.slice(storeIndex+1)
       ]
     })
+    this.saveOnStorage()
+  },
+  saveOnStorage(){
+    let itemsData = this.formatItems()
+    if(itemsData.length > 0){
+      my.setStorageSync({
+        key: 'itemsTienda',
+        data: itemsData
+      });
+    }
+    else{
+      my.removeStorageSync({
+        key: 'itemsTienda'
+      });
+    }
   },
   formatItems(){
     let formattedItems = []
@@ -131,37 +147,16 @@ Page({
     return formattedItems
   },
   redirectToHome(){
-    let itemsData = this.formatItems()
-    if(itemsData.length > 0){
-      my.setStorageSync({
-        key: 'itemsTienda',
-        data: itemsData
-      });
-    }
     my.redirectTo({
       url: '/pages/Home/Home'
     });
   },
   redirectToCart(){
-    let itemsData = this.formatItems()
-    if(itemsData.length > 0){
-      my.setStorageSync({
-        key: 'itemsTienda',
-        data: itemsData
-      });
-    }
     my.redirectTo({
       url: '/pages/Cart/Cart'
     })
   },
   redirectToHistory(){
-    let itemsData = this.formatItems()
-    if(itemsData.length > 0){
-      my.setStorageSync({
-        key: 'itemsTienda',
-        data: itemsData
-      });
-    }
     my.redirectTo({
       url: '/pages/History/History'
     })

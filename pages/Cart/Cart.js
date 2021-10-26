@@ -1,5 +1,6 @@
 Page({
   data: {
+    totalPrice: 0
   },
   onLoad() {
     let storageItems = my.getStorageSync({
@@ -10,11 +11,22 @@ Page({
         storageItems.data[i].id = i
       }
       this.setData({
-        items: storageItems.data
+        items: storageItems.data,
       })
+      this.calculateTotalPrice()
     }
-    
-    
+  },
+  calculateTotalPrice(){
+    let total = 0
+    if(this.data.items && this.data.items.length > 0 ){
+      for (let i = 0; i < this.data.items.length; i++) {
+        total += this.data.items[i].precio * this.data.items[i].cantidad
+      }
+    }
+    this.setData({
+      ...this.data,
+      totalPrice: total
+    })
   },
   formatItems(){
     let formattedItems = []
@@ -38,6 +50,8 @@ Page({
         ...this.data.items.slice(itemIndex+1)
       ],
     })
+    this.saveOnStorage()
+    this.calculateTotalPrice()
   },
   removeFromCart(e){
     let itemIndex = this.data.items.findIndex(obj => obj.id === e.currentTarget.dataset.itemId)
@@ -50,40 +64,36 @@ Page({
         ...this.data.items.slice(itemIndex+1)
       ],
     })
+    this.saveOnStorage()
+    this.calculateTotalPrice()
+  },
+  saveOnStorage(){
+    let itemsData = this.formatItems()
+    if(itemsData.length > 0){
+      my.setStorageSync({
+        key: 'itemsTienda',
+        data: itemsData
+      });
+    }
+    else{
+      my.removeStorageSync({
+        key: 'itemsTienda'
+      });
+    }
   },
   redirectToHome(){
-    let itemsData = this.formatItems()
-    my.setStorageSync({
-      key: 'itemsTienda',
-      data: itemsData
-    });
     my.redirectTo({
       url: '/pages/Home/Home'
     });
   },
   redirectToStore(){
-    let itemsData = this.formatItems()
-    my.setStorageSync({
-      key: 'itemsTienda',
-      data: itemsData
-    });
     my.redirectTo({
       url: this.data.items ? `/pages/Store/Store?store=${this.data.items[0].codigoTienda}` : '/pages/Home/Home'
     });
   },
   redirectToLogin(){
-    let itemsData = this.formatItems()
-    my.setStorageSync({
-      key: 'itemsTienda',
-      data: itemsData
-    });
   },
   redirectToHistory(){
-    let itemsData = this.formatItems()
-    my.setStorageSync({
-      key: 'itemsTienda',
-      data: itemsData
-    });
     my.redirectTo({
       url: '/pages/History/History'
     })
