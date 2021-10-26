@@ -1,6 +1,6 @@
 <view class="container">
 <view class="navbar">
-  <image class="logo-img" mode="scaleToFill" src="https://i.ibb.co/x7SkPDZ/Unisabana-Logo.png" onTap="redirectToHome"/>
+  <image class="logo-img" mode="scaleToFill" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2Funisabana.png?alt=media&token=3b25c6c4-47ba-45ea-b988-06fc34f9c3d5" onTap="redirectToHome"/>
   <input class="search-bar" placeholder="¿Dónde quieres comer?" type="text" onInput="onChange"/>
   <image class="profile-img" mode="scaleToFill" src="https://i.ibb.co/WyMmmfN/icons8-usuario-masculino-en-c-rculo-90.png" onTap="redirectToHistory"/>
 </view>
@@ -19,6 +19,6 @@
   {{error}}
 </view>
 <button class="cart-button" onTap="redirectToCart">
-  <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" />
+  <image class="cart-img" mode="scaleToFill" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2FbasketIcon.png?alt=media&token=af49aeb2-6d99-440a-8ed8-e329c16f801e" />
 </button>
 </view>
