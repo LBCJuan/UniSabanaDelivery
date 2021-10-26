@@ -4,14 +4,14 @@
   <input class="search-bar" placeholder="¿Que deseas comer?" type="text" onInput="onChange"/>
   <image class="profile-img" mode="scaleToFill" src="https://i.ibb.co/WyMmmfN/icons8-usuario-masculino-en-c-rculo-90.png" onTap="redirectToHistory"/>
 </view>
-<view class="history" onTap="redirectToHome">
+<view class="history" onTap="redirectToStore">
   < Volver
 </view>
 <view class="title">
   <text>Resumen del pedido</text>
 </view>
 <view class="order-summary">
-<view class="product-card" a:for="{{items}}" a:for-item="i" id="{{i.id}}">
+<view class="product-card" a:for="{{items}}" a:for-item="i" id="{{i.id}}" a:if="{{i.cantidad > 0}}">
       <view class="product">
           <view class="description">
             <text class="title">{{i.nombre}}</text>
@@ -21,12 +21,7 @@
           <view class="details">
             <image mode="scaleToFill" src="{{i.imagen}}"/>
             <view class="counter">
-              <view a:if="{{i.cantidad === 0}}">
-                <view data-itemId="{{i.id}}" onTap="addToCart">
-                  Agregar
-                </view>
-              </view>
-              <view a:else>
+              <view>
                 <view data-itemId="{{i.id}}" onTap="removeFromCart">
                   -
                 </view>

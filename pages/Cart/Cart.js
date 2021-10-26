@@ -1,27 +1,31 @@
 Page({
   data: {
-    items: [
-        {id: 0, name: 'Churrasco', desc: 'Churrasco con papas', price: '7500', img: 'https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2019/01/el-churrasco-que-es.jpg', cantidad: 0}, 
-        {id: 1, name: 'Hamburguesa', desc: 'Hamburguesa con papas y bebida', price: '5500', img: 'https://www.saborusa.com/wp-content/uploads/2019/10/Rompe-la-rutina-con-una-suculenta-hamburguesa-con-queso-Foto-destacada.png', cantidad: 0},
-        {id: 2, name: 'Coca-Cola 400ml', desc: 'Coca-Cola 400ml', price: '2500', img: 'https://metrocolombiafood.vteximg.com.br/arquivos/ids/308035-750-750/7702535011089.jpg?v=637547053098970000', cantidad: 0}, 
-        {id: 3, name: 'Limonada', desc: 'Limonado', price: '2500', img: 'https://www.pequerecetas.com/wp-content/uploads/2021/05/limonada-como-se-hace.jpg', cantidad: 0}
-    ]
   },
   onLoad() {
     let storageItems = my.getStorageSync({
       key: 'itemsTienda'
     });
-    for (let i = 0; i < storageItems.data.length; i++) {
-      storageItems.data[i].id = i
+    if(storageItems.data){
+      for (let i = 0; i < storageItems.data.length; i++) {
+        storageItems.data[i].id = i
+      }
+      this.setData({
+        items: storageItems.data
+      })
     }
-    this.setData({
-      items: storageItems.data
-    })
+    
+    
   },
-  redirectToHome(){
-    my.redirectTo({
-      url: '/pages/Home/Home'
-    });
+  formatItems(){
+    let formattedItems = []
+    if(this.data.items){
+      for (let i = 0; i < this.data.items.length; i++) {
+        if (this.data.items[i].cantidad > 0) {
+          formattedItems.push(this.data.items[i])
+        }
+      }
+    }
+    return formattedItems
   },
   addToCart(e){
     let itemIndex = this.data.items.findIndex(obj => obj.id === e.currentTarget.dataset.itemId)
@@ -47,10 +51,39 @@ Page({
       ],
     })
   },
+  redirectToHome(){
+    let itemsData = this.formatItems()
+    my.setStorageSync({
+      key: 'itemsTienda',
+      data: itemsData
+    });
+    my.redirectTo({
+      url: '/pages/Home/Home'
+    });
+  },
+  redirectToStore(){
+    let itemsData = this.formatItems()
+    my.setStorageSync({
+      key: 'itemsTienda',
+      data: itemsData
+    });
+    my.redirectTo({
+      url: this.data.items ? `/pages/Store/Store?store=${this.data.items[0].codigoTienda}` : '/pages/Home/Home'
+    });
+  },
   redirectToLogin(){
-    console.log('e')
+    let itemsData = this.formatItems()
+    my.setStorageSync({
+      key: 'itemsTienda',
+      data: itemsData
+    });
   },
   redirectToHistory(){
+    let itemsData = this.formatItems()
+    my.setStorageSync({
+      key: 'itemsTienda',
+      data: itemsData
+    });
     my.redirectTo({
       url: '/pages/History/History'
     })

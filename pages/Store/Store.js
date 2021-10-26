@@ -131,28 +131,37 @@ Page({
     return formattedItems
   },
   redirectToHome(){
-    my.setStorageSync({
-      key: 'itemsTienda',
-      data: this.formatItems()
-    });
+    let itemsData = this.formatItems()
+    if(itemsData.length > 0){
+      my.setStorageSync({
+        key: 'itemsTienda',
+        data: itemsData
+      });
+    }
     my.redirectTo({
       url: '/pages/Home/Home'
     });
   },
   redirectToCart(){
-    my.setStorageSync({
-      key: 'itemsTienda',
-      data: this.formatItems()
-    });
+    let itemsData = this.formatItems()
+    if(itemsData.length > 0){
+      my.setStorageSync({
+        key: 'itemsTienda',
+        data: itemsData
+      });
+    }
     my.redirectTo({
       url: '/pages/Cart/Cart'
     })
   },
   redirectToHistory(){
-    my.setStorageSync({
-      key: 'itemsTienda',
-      data: this.formatItems()
-    });
+    let itemsData = this.formatItems()
+    if(itemsData.length > 0){
+      my.setStorageSync({
+        key: 'itemsTienda',
+        data: itemsData
+      });
+    }
     my.redirectTo({
       url: '/pages/History/History'
     })
