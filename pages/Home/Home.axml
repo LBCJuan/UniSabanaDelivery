@@ -18,7 +18,4 @@
 <view a:if="{{error}}" class="stores-error">
   {{error}}
 </view>
-<button class="cart-button" onTap="redirectToCart">
-  <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" />
-</button>
 </view>

@@ -14,12 +14,12 @@
 <view class="product-card" a:for="{{items}}" a:for-item="i" id="{{i.id}}">
       <view class="product">
           <view class="description">
-            <text class="title">{{i.name}}</text>
-            <text class="desc">{{i.desc}}</text>
-            <text class="price">${{i.price}}</text>
+            <text class="title">{{i.nombre}}</text>
+            <text class="desc">{{i.descripcion}}</text>
+            <text class="price">${{i.precio}}</text>
           </view>
           <view class="details">
-            <image mode="scaleToFill" src="{{i.img}}"/>
+            <image mode="scaleToFill" src="{{i.imagen}}"/>
             <view class="counter">
               <view a:if="{{i.cantidad === 0}}">
                 <view data-itemId="{{i.id}}" onTap="addToCart">

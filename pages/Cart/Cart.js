@@ -8,33 +8,19 @@ Page({
     ]
   },
   onLoad() {
-    let usuario = my.getStorageSync({
-      key: 'codigoUsuario'
+    let storageItems = my.getStorageSync({
+      key: 'itemsTienda'
     });
-    this.getCartItems(usuario)
+    for (let i = 0; i < storageItems.data.length; i++) {
+      storageItems.data[i].id = i
+    }
+    this.setData({
+      items: storageItems.data
+    })
   },
   redirectToHome(){
     my.redirectTo({
       url: '/pages/Home/Home'
-    });
-  },
-  getCartItems(usuario){
-    my.request({
-      url: `https://api-sabanadelivery.herokuapp.com/Carrito/buscar?codigo=${usuario.data}`,
-      headers: {},
-      method: 'GET',
-      data: {},
-      timeout: 30000,
-      dataType: 'JSON',
-      success: (result) => {
-        console.log(result.data)
-      },
-      fail: () => {
-        
-      },
-      complete: () => {
-        
-      }
     });
   },
   addToCart(e){

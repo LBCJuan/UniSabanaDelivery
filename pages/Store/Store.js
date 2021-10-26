@@ -58,16 +58,35 @@ Page({
     }, {});
   },
   updateItems(data){
+    let storageItems = my.getStorageSync({
+      key: 'itemsTienda'
+    });
     let updatedItems = []
     let groupedItems = Object.values(this.group(data, "categoria"))
+
     for (let i = 0; i < groupedItems.length; i++) {
       for (let j = 0; j < groupedItems[i].length; j++) {
         groupedItems[i][j] = {...groupedItems[i][j], id: j, cantidad: 0}
       }
     }
+
+    if (storageItems.data && storageItems.data.length > 0) {
+      for (let i = 0; i < groupedItems.length; i++) {
+        for (let j = 0; j < groupedItems[i].length; j++) {
+          for (let k = 0; k < storageItems.data.length; k++) {
+            if (groupedItems[i][j].codigo === storageItems.data[k].codigo) {
+              groupedItems[i][j].cantidad = storageItems.data[k].cantidad
+            }
+          }
+        }
+      }
+    }
+    
+
     for (let i = 0; i < groupedItems.length; i++) {
       updatedItems[i] = {id: i, title: groupedItems[i][0].categoria, items: groupedItems[i]}
     }
+
     this.setData({
       store_items: updatedItems
     })
@@ -100,19 +119,44 @@ Page({
       ]
     })
   },
+  formatItems(){
+    let formattedItems = []
+    for (let i = 0; i < this.data.store_items.length; i++) {
+      for (let j = 0; j < this.data.store_items[i].items.length; j++) {
+        if (this.data.store_items[i].items[j].cantidad > 0) {
+          formattedItems.push(this.data.store_items[i].items[j])
+        }
+      }
+    }
+    return formattedItems
+  },
   redirectToHome(){
+    my.setStorageSync({
+      key: 'itemsTienda',
+      data: this.formatItems()
+    });
     my.redirectTo({
       url: '/pages/Home/Home'
     });
   },
   redirectToCart(){
+    my.setStorageSync({
+      key: 'itemsTienda',
+      data: this.formatItems()
+    });
     my.redirectTo({
       url: '/pages/Cart/Cart'
     })
   },
   redirectToHistory(){
+    my.setStorageSync({
+      key: 'itemsTienda',
+      data: this.formatItems()
+    });
     my.redirectTo({
       url: '/pages/History/History'
     })
+  
+  
   }
 });

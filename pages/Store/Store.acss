@@ -148,17 +148,24 @@
   height: 100px;
 }
 
+.cart-button-container{
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .cart-button{
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
+  width: 170px;
+  height: 45px;
   background-color: #00225A;
-  border-radius: 100%;
+  border-radius: 20px;
   bottom: 40px;
   left: 20px;
+  color: #fff;
 }
 
 .cart-button .cart-img{

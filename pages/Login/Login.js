@@ -5,7 +5,9 @@ Page({
     error: ''
   },
   onLoad() {
-    my.clearStorage();
+    my.removeStorageSync({
+      key: 'codigoUsuario'
+    });
   },
   redirectToRegister() {
     my.redirectTo({
@@ -24,7 +26,6 @@ Page({
           timeout: 30000,
           dataType: 'JSON',
           success: (result) => {
-            console.log(result.data)
             if (result.data[0]) {
               my.setStorageSync({
                 key: 'codigoUsuario',
