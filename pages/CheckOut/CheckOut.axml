@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="navbar">
+    <image class="logo-img" mode="scaleToFill" src="https://i.ibb.co/x7SkPDZ/Unisabana-Logo.png" onTap="redirectToHome"/>
+    <input class="search-bar" placeholder="¿Que deseas comer?" type="text" onInput="onChange"/>
+    <image class="profile-img" mode="scaleToFill" src="https://i.ibb.co/WyMmmfN/icons8-usuario-masculino-en-c-rculo-90.png" onTap="redirectToHistory"/>
+  </view>
+  <view class="history" onTap="redirectToHome"> < Volver
+  </view>
+  <view class="title">
+    <text>Resumen del pedido</text>
+  </view>
+  <view class="containerOrder">
+    <textarea placeholder="Describe el lugar en el que estas, entra mas especifico seas mejor" data-id="descripcion" onInput="updateInfo"></textarea>
+  </view>
+  <view class="containerPago">
+    <view class="pagoEfectivo">
+      <image mode="scaleToFill" src="https://cdn-icons-png.flaticon.com/512/1041/1041971.png">
+      <text>Resumen del pedido</text>
+    </view>
+    <view class="pagoTarjeta">
+      <image mode="scaleToFill" src="https://cdn-icons-png.flaticon.com/512/1041/1041971.png">
+      <text>Resumen del pedido</text>
+    </view>
+  </view>
+  <view class="costs-summary">
+    <text class="title">Total a pagar:</text>
+    <text class="price">$2400</text>
+  </view>
+  <button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido</button>
+</view>
