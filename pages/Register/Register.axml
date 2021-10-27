@@ -6,5 +6,5 @@
     <input placeholder="Teléfono" data-id="telefono" type="number" onInput="updateInfo"/>
     <input placeholder="Clave" data-id="clave" onInput="updateInfo"/>
   </view>
-  <button class="home-button" size="default" type="primary" onTap="verificarTelefono">Registrarse</button>
+  <button class="home-button" size="default" type="primary" onTap="registrarse">Registrarse</button>
 </view>

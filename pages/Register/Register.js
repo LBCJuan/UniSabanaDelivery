@@ -2,22 +2,20 @@ Page({
   data: {
     clave: '',
     telefono: '',
+    nombre: ''
   },
-  onLoad() { },
-  redirectToRegister() {
-    my.redirectTo({
-      url: '/pages/Register/Register'
-    })
+  onLoad() {
+
   },
-  redirectToHome() {
-    if (this.data.clave && this.data.telefono) {
+  registrarse() {
+    if (this.data.clave && this.data.telefono && this.data.nombre) {
       my.request({
-        url: `http://192.168.20.22:4700/PerfilUsuario/verificar`,
+        url: `https://api-sabanadelivery.herokuapp.com/PerfilUsuario/registrar`,
         headers: {},
-        method: 'GET',
-        data: { clave: this.data.clave, telefono: this.data.telefono },
+        method: 'POST',
+        data: { clave: this.data.clave, telefono: this.data.telefono, nombre: this.data.nombre },
         timeout: 30000,
-        dataType: '',
+        dataType: 'JSON',
         success: (result) => {
           my.redirectTo({
             url: '/pages/Home/Home'
@@ -29,9 +27,9 @@ Page({
           })
         },
         complete: () => {
-
         }
       });
+
     }
     else {
       my.alert({ title: 'Oops', content: 'Por favor completa todos los campos' });
