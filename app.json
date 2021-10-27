@@ -1,13 +1,14 @@
 {
   "pages": [
+    
+    "pages/CheckOut/CheckOut",
     "pages/Login/Login",
     "pages/Home/Home",
     "pages/Store/Store",
     "pages/Cart/Cart",
     "pages/History/History",
     "pages/Register/Register",
-    "pages/StoreHome/StoreHome",
-    "pages/CheckOut/CheckOut"
+    "pages/StoreHome/StoreHome"
   ],
   "window": {
     "defaultTitle": "UniSabana Delivery"
