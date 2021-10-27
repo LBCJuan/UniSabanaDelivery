@@ -48,5 +48,10 @@ Page({
     my.redirectTo({
       url: '/pages/History/History'
     })
+  },
+  redirectToCart(){
+    my.redirectTo({
+      url: '/pages/Cart/Cart'
+    })
   }
 });

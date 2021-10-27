@@ -155,16 +155,16 @@
 }
 
 .cart-button{
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 170px;
-  height: 45px;
+  width: 60px;
+  height: 60px;
   background-color: #00225A;
-  border-radius: 20px;
+  border-radius: 100%;
   bottom: 40px;
   left: 20px;
-  color: #fff;
 }
 
 .cart-button .cart-img{

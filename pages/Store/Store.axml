@@ -10,12 +10,6 @@
 <view class="title">
   <text>{{storeTitle}}</text>
 </view>
-<view class="cart-button-container">
-  <button class="cart-button" onTap="redirectToCart">
-    <image class="cart-img" mode="scaleToFill" src="https://i.ibb.co/HF8qtF4/Shopping-Cart.png" />
-    <text>Ver resumen</text>
-  </button>
-</view>
 <view class="categories_container">
   <view class="category_container" a:for="{{store_items}}" a:for-item="i">
     <view class="storeTitle-container">

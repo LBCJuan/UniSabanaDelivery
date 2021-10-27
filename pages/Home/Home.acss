@@ -80,3 +80,21 @@
   margin: 5% auto;
   font-size: 1.2em;
 }
+
+.cart-button{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #00225A;
+  border-radius: 100%;
+  bottom: 40px;
+  left: 20px;
+}
+
+.cart-button .cart-img{
+  width: 40px;
+  height: 40px;
+}
