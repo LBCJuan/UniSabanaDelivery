@@ -17,9 +17,15 @@ Page({
         timeout: 30000,
         dataType: 'JSON',
         success: (result) => {
-          my.redirectTo({
-            url: '/pages/Home/Home'
+          if(result.data.errno){
+            my.alert({ title: 'Oops', content: 'Ese numero ya esta en uso' })
+          }
+          else{
+            my.redirectTo({
+            url: '/pages/Login/Login'
           })
+          }
+          
         },
         fail: () => {
           this.setData({
