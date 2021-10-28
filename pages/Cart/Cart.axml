@@ -39,7 +39,10 @@
     </view>
 </view>
 <view class="containerOrder">
-  <textarea placeholder="Describe el lugar en el que estas, entra mas especifico seas mejor" data-id="descripcion" onInput="updateInfo"></textarea>
+  <textarea placeholder="Describe el lugar en el que estas, entra más específico seas mejor." data-id="descripcion" onInput="updateInfo"></textarea>
+  <view class="texto">
+    <text>Método de pago: efectivo</text>
+  </view>
 </view>
 <view class="costs-summary">
   <text class="title">Total a pagar:</text>

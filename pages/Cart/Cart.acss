@@ -161,14 +161,29 @@
   color: #fff;
 }
 
-textarea {
+.containerOrder  textarea {
   position: relative;
   width: 90%;
   height: 150px;
   margin: auto;
 }
 
+.containerOrder text{
+  color: #00225A;
+  font-weight: bold;
+  font-size: 1.2em
+}
+
+.containerOrder .texto{
+  width: 90%;
+  margin-top: 10%; 
+}
+
 .containerOrder {
   width: 100%;
-  border: 10% 0;
+  margin: 10% auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
 }
