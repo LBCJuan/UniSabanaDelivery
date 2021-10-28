@@ -38,6 +38,9 @@
       <view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"> </view>
     </view>
 </view>
+<view class="containerOrder">
+  <textarea placeholder="Describe el lugar en el que estas, entra mas especifico seas mejor" data-id="descripcion" onInput="updateInfo"></textarea>
+</view>
 <view class="costs-summary">
   <text class="title">Total a pagar:</text>
   <text class="price">${{totalPrice}}</text>

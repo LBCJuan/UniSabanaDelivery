@@ -160,3 +160,15 @@
   background-color: #00225A;
   color: #fff;
 }
+
+textarea {
+  position: relative;
+  width: 90%;
+  height: 150px;
+  margin: auto;
+}
+
+.containerOrder {
+  width: 100%;
+  border: 10% 0;
+}
