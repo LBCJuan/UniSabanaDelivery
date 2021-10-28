@@ -13,7 +13,8 @@
     <view class='divisor-line' style="width: 90%; height: 1px; margin: 0% 0; background-color: #00225A"> </view>
     <view class="pedidosRecibidos-card" a:for="{{recibido}}" a:for-item="i" id="{{i.id}}">
       <view class="product">
-        <view class="description">              
+        <view class="description">       
+        <text class="id">Número de Pedido {{i.id+1}}</text>
         <text class="desc">{{i.desc}}</text>
         </view>   
          <view class="pedidoAceptarRechazar">
@@ -39,7 +40,8 @@
 
     <view class="pedidosCurso-card" a:for="{{curso}}" a:for-item="i" id="{{i.id}}">
       <view class="product">
-        <view class="description">              
+        <view class="description">        
+        <text class="id">Número de Pedido {{i.id+1}}</text>      
         <text class="desc">{{i.desc}}</text>
         </view>   
          <view class="pedidoFinalizar">
