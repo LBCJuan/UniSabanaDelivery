@@ -38,9 +38,6 @@
       <view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"> </view>
     </view>
 </view>
-<view class="costs-summary">
-  <text class="title">Total a pagar:</text>
-  <text class="price">${{totalPrice}}</text>
-</view>
-<button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido</button>
-</view>
+
+<button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido ${{totalPrice}}</button>
+</view> 
