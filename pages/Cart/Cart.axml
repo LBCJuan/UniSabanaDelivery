@@ -44,12 +44,5 @@
     <text>Método de pago: efectivo</text>
   </view>
 </view>
-<view class="costs-summary">
-  <text class="title">Total a pagar:</text>
-  <text class="price">${{totalPrice}}</text>
-</view>
-<button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido</button>
-</view>
-
 <button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido ${{totalPrice}}</button>
 </view> 
