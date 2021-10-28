@@ -50,3 +50,6 @@
 </view>
 <button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido</button>
 </view>
+
+<button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido ${{totalPrice}}</button>
+</view> 

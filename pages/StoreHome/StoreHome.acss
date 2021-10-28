@@ -146,7 +146,17 @@
   margin: 0% 0;
   width: 75%;
   line-height: 1em;
-  float:left
+  float:left;
+  
+
+}
+.pedidosRecibidos-card .product .description .id{
+  margin: 5% 0;
+  width: 75%;
+  line-height: 1em;
+  float:left;
+  font-weight: bold;
+
 }
 
 .pedidosCurso-card .product .description .desc{
@@ -154,6 +164,14 @@
   width: 75%;
   line-height: 1em;
   float:left
+}
+.pedidosCurso-card .product .description .id{
+  margin: 5% 0;
+  width: 75%;
+  line-height: 1em;
+  float:left;
+  font-weight: bold;
+
 }
 
 .pedidoAceptarRechazar{
