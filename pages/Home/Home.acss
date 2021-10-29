@@ -76,9 +76,13 @@
 }
 
 .stores-error{
-  width: 80%;
+  width: 100%;
   margin: 5% auto;
   font-size: 1.2em;
+}
+
+.stores-error .error-img{
+  width: 100%
 }
 
 .cart-button{

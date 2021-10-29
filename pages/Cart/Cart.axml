@@ -7,10 +7,10 @@
 <view class="history" onTap="redirectToStore">
   < Volver
 </view>
-<view class="title">
+<view class="title" a:if="{{totalPrice > 0}}">
   <text>Resumen del pedido</text>
 </view>
-<view class="order-summary">
+<view class="order-summary" a:if="{{totalPrice > 0}}">
 <view class="product-card" a:for="{{items}}" a:for-item="i" id="{{i.id}}" a:if="{{i.cantidad > 0}}">
       <view class="product">
           <view class="description">
@@ -38,11 +38,14 @@
       <view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"> </view>
     </view>
 </view>
-<view class="containerOrder">
+<view a:else class="stores-error">
+  <image class="error-img" mode="scaleToFill" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2FunisabanaBolsita.png?alt=media&token=b0c7517c-61df-4af7-873b-1dde9008fb2c"/>
+</view>
+<view class="containerOrder" a:if="{{totalPrice > 0}}">
   <textarea placeholder="Describe el lugar en el que estas, entra más específico seas mejor." data-id="descripcion" onInput="updateInfo"></textarea>
   <view class="texto">
     <text>Método de pago: efectivo</text>
   </view>
 </view>
-<button class="confirm-button" size="default" type="primary" onTap="redirectToLogin">Confirmar pedido ${{totalPrice}}</button>
+<button class="confirm-button" size="default" type="primary" onTap="confirmOrder" a:if="{{totalPrice > 0}}">Confirmar pedido ${{totalPrice}}</button>
 </view> 

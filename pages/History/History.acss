@@ -89,6 +89,11 @@
   margin: 5% 0
 }
 
+.history-container .items .item-card image{
+  width: 150px;
+  height: 150px
+}
+
 .history-container .items .item-card .details{
   display: flex;
   justify-content: center;

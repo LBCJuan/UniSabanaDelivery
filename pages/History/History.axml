@@ -10,13 +10,16 @@
 <view class="history-container">
   <text class="title">Historial de compras</text>
   <view class="items">
-    <view class="item-card" a:for="{{items}}">
-      <view class="item-logo">
+    <view class="item-card" a:for="{{items}}" a:for-item="i">
+      <image mode="scaleToFill" src="{{i[0].imagen}}"/>
+      <text class="item-id">ID: {{i[0].codigoCompra}}</text>
+      <view a:for="{{i}}" a:for-item="j">
+        <text>{{j.cantidad}} x {{j.nombre}} - ${{j.total}}</text>
       </view>
-      <text class="item-id">ID: QDAS131FDZF1</text>
+      <text>Estado: {{i[0].estado}}</text>
       <view class="details">
-        <text>Fecha de compra: 00/00/00:00:00</text>
-        <text>Total pagado: $7800</text>
+        <text>Fecha de compra:</text>
+        <text>{{i[0].fecha}}</text>
       </view>
     </view>
   </view>

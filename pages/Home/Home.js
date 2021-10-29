@@ -1,7 +1,7 @@
 Page({
   data: {
     searchBarInput: '',
-    store_items: ['Embarcadero', 'Punto sandwich', 'Cafe de la bolsa', 'Kioskos'],
+    store_items: '',
     error: ''
   },
   onLoad() {

@@ -16,7 +16,7 @@
   </view>  
 </view>
 <view a:if="{{error}}" class="stores-error">
-  {{error}}
+  <image class="error-img" mode="scaleToFill" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2FunisabanaSad.png?alt=media&token=14e74030-c0f1-425d-8fe9-d8ca2770952c"/>
 </view>
 <button class="cart-button" onTap="redirectToCart">
   <image class="cart-img" mode="scaleToFill" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2FbasketIcon.png?alt=media&token=af49aeb2-6d99-440a-8ed8-e329c16f801e" />

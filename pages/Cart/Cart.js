@@ -1,6 +1,9 @@
 Page({
   data: {
-    totalPrice: 0
+    totalPrice: 0,
+    latitude: 0,
+    longitude: 0,
+    locationDescription: ''
   },
   onLoad() {
     let storageItems = my.getStorageSync({
@@ -97,5 +100,95 @@ Page({
     my.redirectTo({
       url: '/pages/History/History'
     })
+  },
+  getLocationDetails(){
+    let location = my.getLocation({
+      success(res) {
+        my.hideLoading();
+        return res
+    },
+      fail() {
+        my.hideLoading();
+        my.alert({ title: 'location failed' });
+      },
+    }).then(i => {
+      this.setData({
+        latitude: i.latitude,
+        longitude: i.longitude
+      })
+    })
+    
+  },
+  createOrder(){
+    my.request({
+      url: 'https://api-sabanadelivery.herokuapp.com/Compra/realizarPedido',
+      headers: {},
+      method: 'POST',
+      data: {
+        codigoUsuario: my.getStorageSync({ key: 'codigoUsuario' }).data,
+        codigoTienda: my.getStorageSync({ key: 'itemsTienda' }).data[0].codigoTienda,
+        latitud: this.data.latitude,
+        longitud: this.data.longitude,
+        descripcion: this.data.locationDescription
+      },
+      timeout: 30000,
+      dataType: '',
+      success: (result) => {
+        this.createOrderDetails(result.data.insertId)
+      },
+      fail: () => {
+        this.setData({
+          error: 'Error getting stores'
+        })
+      },
+      complete: () => {
+        
+      }
+    });
+  },
+  createOrderDetails(id){
+    my.request({
+      url: 'https://api-sabanadelivery.herokuapp.com/DetalleCompra/crear',
+      headers: {},
+      method: 'POST',
+      data: {
+        codigoCompra: id,
+        listado: this.data.items
+      },
+      timeout: 30000,
+      dataType: '',
+      success: (result) => {
+        my.confirm({
+          title: 'Completado!',
+          content: 'Felicidades, tu compra esta completada, revisa en tu historial para ver su estado.',
+          confirmButtonText: 'Volver a home',
+          cancelButtonText: 'Cancelar',
+          success: (result) => {
+            my.redirectTo({
+              url: '/pages/Home/Home'
+            });
+          },
+        });
+      },
+      fail: () => {
+        this.setData({
+          error: 'Error getting stores'
+        })
+      },
+      complete: () => {
+        
+      }
+    });
+  },
+  updateInfo(e){
+    //this.getLocationDetails()
+    this.setData({
+      locationDescription: e.detail.value
+    })
+  },
+  confirmOrder(){
+    if(this.data.totalPrice > 0 && this.data.locationDescription){
+      this.createOrder()
+    }
   }
 });
