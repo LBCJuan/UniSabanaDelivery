@@ -180,6 +180,14 @@ Page({
       }
     });
   },
+  llenarDesc(){
+      my.alert({
+        content:'Por favor describe el lugar en el que te encuentras!',
+        buttonText: 'Aceptar',
+
+      })
+
+  },
   updateInfo(e){
     //this.getLocationDetails()
     this.setData({
@@ -189,6 +197,9 @@ Page({
   confirmOrder(){
     if(this.data.totalPrice > 0 && this.data.locationDescription){
       this.createOrder()
+    }
+    else{
+      this.llenarDesc()
     }
   }
 });

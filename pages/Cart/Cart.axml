@@ -42,7 +42,7 @@
   <image class="error-img" mode="scaleToFill" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2FunisabanaBolsita.png?alt=media&token=b0c7517c-61df-4af7-873b-1dde9008fb2c"/>
 </view>
 <view class="containerOrder" a:if="{{totalPrice > 0}}">
-  <textarea placeholder="Describe el lugar en el que estas, entra más específico seas mejor." data-id="descripcion" onInput="updateInfo"></textarea>
+  <textarea placeholder="Describe el lugar en el que estas, si eres más específico mejor!" data-id="descripcion" onInput="updateInfo"></textarea>
   <view class="texto">
     <text>Método de pago: efectivo</text>
   </view>
