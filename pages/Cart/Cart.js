@@ -158,10 +158,13 @@ Page({
       timeout: 30000,
       dataType: '',
       success: (result) => {
+        my.removeStorageSync({
+          key: 'itemsTienda'
+        });
         my.confirm({
           title: 'Completado!',
-          content: 'Felicidades, tu compra esta completada, revisa en tu historial para ver su estado.',
-          confirmButtonText: 'Volver a home',
+          content: 'Felicidades, tu compra esta completada, revisa tu historial para ver su estado.',
+          confirmButtonText: 'Ver historial',
           cancelButtonText: 'Cancelar',
           success: (result) => {
             my.redirectTo({
@@ -181,13 +184,13 @@ Page({
     });
   },
   updateInfo(e){
-    //this.getLocationDetails()
+    this.getLocationDetails()
     this.setData({
       locationDescription: e.detail.value
     })
   },
   confirmOrder(){
-    if(this.data.totalPrice > 0 && this.data.locationDescription){
+    if(this.data.totalPrice > 0 && this.data.latitud != 0 && this.data.longitude != 0 && this.data.locationDescription){
       this.createOrder()
     }
   }

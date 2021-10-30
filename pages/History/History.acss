@@ -104,3 +104,7 @@
 .history-container .items .item-card .details > * {
   margin: 5% 0
 }
+
+.history-container .items .item-card .item-id{
+  font-weight: bold
+}

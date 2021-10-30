@@ -19,7 +19,8 @@
       <text>Estado: {{i[0].estado}}</text>
       <view class="details">
         <text>Fecha de compra:</text>
-        <text>{{i[0].fecha}}</text>
+        <text>{{i[0].fecha.split('T')[0]}}</text>
+        <text>{{i[0].fecha.split('T')[1].split('.')[0]}}</text>
       </view>
     </view>
   </view>

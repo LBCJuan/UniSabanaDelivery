@@ -29,7 +29,7 @@ Page({
             if (result.data[0]) {
               my.setStorageSync({
                 key: 'codigoUsuario',
-                data: result.data[0].codigo
+                data: result.data[0].nombre
               });
               my.redirectTo({
                 url: '/pages/StoreHome/StoreHome'
