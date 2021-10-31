@@ -254,19 +254,27 @@
   font-weight: bold;
 }
 
-.pedidosRecibidoscontainer .pedidosRecibidos-card .contenedorCompra{
+.pedidosRecibidoscontainer .pedidosRecibidos-card{
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-direction: column
+}
+
+.pedidosRecibidoscontainer .pedidosRecibidos-card .contenedorCompra{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
   flex-direction: row;
-  width: 80%;
+  width: 100%;
   position: relative;
+  margin-bottom: 5%
 }
 
 .pedidosRecibidoscontainer .pedidosRecibidos-card .contenedorCompra .pedidoAceptarRechazar {
-  width: 30%;
+  width: 40%;
 }
 
 .pedidosRecibidoscontainer .pedidosRecibidos-card .contenedorCompra .description {
-  width: 70%;
+  width: 60%;
 }
