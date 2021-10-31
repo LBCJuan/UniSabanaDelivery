@@ -250,3 +250,23 @@
   height: 30px;
 }
 
+.id {
+  font-weight: bold;
+}
+
+.pedidosRecibidoscontainer .pedidosRecibidos-card .contenedorCompra{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  width: 80%;
+  position: relative;
+}
+
+.pedidosRecibidoscontainer .pedidosRecibidos-card .contenedorCompra .pedidoAceptarRechazar {
+  width: 30%;
+}
+
+.pedidosRecibidoscontainer .pedidosRecibidos-card .contenedorCompra .description {
+  width: 70%;
+}
