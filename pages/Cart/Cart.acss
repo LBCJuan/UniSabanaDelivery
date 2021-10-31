@@ -177,7 +177,15 @@
 
 .containerOrder .texto{
   width: 90%;
-  margin-top: 10%; 
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.containerOrder .texto text{
+  margin: 3% 0;
 }
 
 .stores-error{

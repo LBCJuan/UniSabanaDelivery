@@ -45,6 +45,7 @@
   <textarea placeholder="Describe el lugar en el que estas, si eres más específico mejor!" data-id="descripcion" onInput="updateInfo"></textarea>
   <view class="texto">
     <text>Método de pago: efectivo</text>
+    <text>*Recuerda que el pedido será enviado a tu ubicación actual.</text>
   </view>
 </view>
 <button class="confirm-button" size="default" type="primary" onTap="confirmOrder" a:if="{{totalPrice > 0}}">Confirmar pedido ${{totalPrice}}</button>

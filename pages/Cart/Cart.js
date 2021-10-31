@@ -161,14 +161,13 @@ Page({
         my.removeStorageSync({
           key: 'itemsTienda'
         });
-        my.confirm({
+        my.alert({
           title: 'Completado!',
           content: 'Felicidades, tu compra esta completada, revisa tu historial para ver su estado.',
-          confirmButtonText: 'Ver historial',
-          cancelButtonText: 'Cancelar',
+          buttonText: 'Ver historial',
           success: (result) => {
             my.redirectTo({
-              url: '/pages/Home/Home'
+              url: '/pages/History/History'
             });
           },
         });
