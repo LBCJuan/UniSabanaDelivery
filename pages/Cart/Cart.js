@@ -153,7 +153,7 @@ Page({
       method: 'POST',
       data: {
         codigoCompra: id,
-        listado: this.data.items
+        listado: this.data.items.filter(i => i.cantidad > 0)
       },
       timeout: 30000,
       dataType: '',
