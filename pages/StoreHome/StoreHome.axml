@@ -1,60 +1,67 @@
 <view class="container">
-<view class="navbar">
-  <image class="logo-img" mode="scaleToFill" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2Funisabana.png?alt=media&token=3b25c6c4-47ba-45ea-b988-06fc34f9c3d5"/>
-</view>
-<view class="title">
-  <text>Pedidos</text>
-</view>
-<view class= "pedidosRecibidoscontainer">
-  <view class= "pedidosRecibidosTitle">
-    <text>Pedidos Recibidos</text>
+  <view class="navbar">
+    <image class="logo-img" mode="scaleToFill" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2Funisabana.png?alt=media&token=3b25c6c4-47ba-45ea-b988-06fc34f9c3d5"/>
   </view>
-  <view class="pedidosRecibidos">
-    <view class='divisor-line' style="width: 90%; height: 1px; margin: 0% 0; background-color: #00225A"> </view>
-    <view class="pedidosRecibidos-card" a:for="{{recibido}}" a:for-item="i" id="{{i.id}}">
-      <view class="product">
-        <view class="description">       
-        <text class="id">Número de Pedido {{i.id+1}}</text>
-        <text class="desc">{{i.desc}}</text>
-        </view>   
-         <view class="pedidoAceptarRechazar">
-          <button class="accept-button" size="default" type="primary" onTap="">
-            <image class="accept-img" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2Fchulo.png?alt=media&token=55d70411-1847-423f-a74a-1640b7655f07"/>
-          </button>
-          <button class="reject-button" size="default" type="primary" onTap="">
-            <image class="reject-img" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2Fx.png?alt=media&token=3c248253-c14e-4eca-9b56-7e366941c096"/>
-          </button>
-        </view>   
-      </view>
-     <view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"> </view>
-    </view>    
-  </view>  
-</view>
-<view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"> </view>
-<view class= "pedidosCursocontainer">
-  <view class= "pedidosCursoTitle">
-    <text>Pedidos En Curso</text>
-  </view>
-  <view class="pedidosCurso">
-    <view class='divisor-line' style="width: 90%; height: 1px; margin: 0% 0; background-color: #00225A"> </view>
 
-    <view class="pedidosCurso-card" a:for="{{curso}}" a:for-item="i" id="{{i.id}}">
-      <view class="product">
-        <view class="description">        
-        <text class="id">Número de Pedido {{i.id+1}}</text>      
-        <text class="desc">{{i.desc}}</text>
-        </view>   
-         <view class="pedidoFinalizar">
-          <button class="final-button" size="default" type="primary" onTap="">
-            <image class="final-img" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2Fbandera.png?alt=media&token=da5088bb-3c94-488f-b125-1df1fb0acf1f"/>
-          </button>
-        </view>   
-      </view>
-      <view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"> </view>
+  <view class="title">
+    <text>Pedidos</text>
+  </view>
+
+  <view class= "pedidosRecibidoscontainer">
+
+    <view class= "pedidosRecibidosTitle">
+      <text>Pedidos Recibidos</text>
+    </view>
+
+    <view class="pedidosRecibidos">
+      <view class='divisor-line' style="width: 90%; height: 1px; margin-bottom: 5%; background-color: #00225A"></view>
+      <view class="pedidosRecibidos-card" a:for="{{recibido}}" a:for-item="i">
+        <view class="contenedorCompra">
+          <view class="description">
+            <text class="id">Número de Pedido {{i[0].codigoCompra}}</text>
+            <view class="desc" a:for="{{i}}" a:for-item="j">
+              <text>{{j.cantidad}} X {{j.nombre}}</text>
+            </view>
+          </view>
+          <view class="pedidoAceptarRechazar">
+            <button class="accept-button" size="default" type="primary" onTap="">
+              <image class="accept-img" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2Fchulo.png?alt=media&token=55d70411-1847-423f-a74a-1640b7655f07"/>
+            </button>
+            <button class="reject-button" size="default" type="primary" onTap="">
+              <image class="reject-img" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2Fx.png?alt=media&token=3c248253-c14e-4eca-9b56-7e366941c096"/>
+            </button>
+          </view>
+        </view>
+        <view class='divisor-line' style="width: 100%; height: 1px; margin: 3% 0; background-color: #00225A"></view>
       </view>
     </view>
   </view>
+
+  <view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"></view>
+  <view class= "pedidosCursocontainer">
+
+    <view class= "pedidosCursoTitle">
+      <text>Pedidos En Curso</text>
+    </view>
+
+    <view class="pedidosCurso">
+      <view class='divisor-line' style="width: 90%; height: 1px; margin: 0% 0; background-color: #00225A"></view>
+
+      <view class="pedidosCurso-card" a:for="{{curso}}" a:for-item="i" id="{{i.id}}">
+        <view class="product">
+          <view class="description">
+            <text class="id">Número de Pedido {{i.id+1}}</text>
+            <text class="desc">{{i.desc}}</text>
+          </view>
+          <view class="pedidoFinalizar">
+            <button class="final-button" size="default" type="primary" onTap="">
+              <image class="final-img" src="https://firebasestorage.googleapis.com/v0/b/unisabanadeliveryfotos.appspot.com/o/Icons%2Fbandera.png?alt=media&token=da5088bb-3c94-488f-b125-1df1fb0acf1f"/>
+            </button>
+          </view>
+        </view>
+        <view class='divisor-line' style="width: 100%; height: 1px; margin: 10% 0; background-color: #00225A"></view>
+      </view>
+    </view>
+
+  </view>
 </view>
-
-
-
