@@ -48,6 +48,96 @@ Page({
       }
     })
   },
+  inProcess(e){
+    let id = e.currentTarget.dataset.id
+    my.request({
+      url: `https://api-sabanadelivery.herokuapp.com/Compra/actualizar`,
+      headers: {},
+      method: 'POST',
+      data: { codigo: id, estado: 'En Proceso'},
+      timeout: 30000,
+      dataType: '',
+      success: (result) => {
+        my.alert({
+          title: 'Completado!',
+          content: 'Orden marcada como en proceso',
+          buttonText: 'Ok',
+          success: (result) => {
+            this.traerVerificacion()
+            this.traerProceso()
+          },
+        });
+      },
+      fail: () => {
+        this.setData({
+          error: 'Error getting orders'
+        })
+      },
+      complete: () => {
+
+      }
+    })
+  },
+  cancelled(e){
+    let id = e.currentTarget.dataset.id
+    my.request({
+      url: `https://api-sabanadelivery.herokuapp.com/Compra/actualizar`,
+      headers: {},
+      method: 'POST',
+      data: { codigo: id, estado: 'Cancelado'},
+      timeout: 30000,
+      dataType: '',
+      success: (result) => {
+        my.alert({
+          title: 'Completado!',
+          content: 'Orden marcada como cancelada',
+          buttonText: 'Ok',
+          success: (result) => {
+            this.traerVerificacion()
+            this.traerProceso()
+          },
+        });
+      },
+      fail: () => {
+        this.setData({
+          error: 'Error getting orders'
+        })
+      },
+      complete: () => {
+
+      }
+    })
+  },
+  finished(e){
+    let id = e.currentTarget.dataset.id
+    my.request({
+      url: `https://api-sabanadelivery.herokuapp.com/Compra/actualizar`,
+      headers: {},
+      method: 'POST',
+      data: { codigo: id, estado: 'Finalizado'},
+      timeout: 30000,
+      dataType: '',
+      success: (result) => {
+        my.alert({
+          title: 'Completado!',
+          content: 'Orden marcada como finalizada',
+          buttonText: 'Ok',
+          success: (result) => {
+            this.traerVerificacion()
+            this.traerProceso()
+          },
+        });
+      },
+      fail: () => {
+        this.setData({
+          error: 'Error getting orders'
+        })
+      },
+      complete: () => {
+
+      }
+    })
+  },
   traerProceso() {
     my.request({
       url: `https://api-sabanadelivery.herokuapp.com/DetalleCompra/pedidosEnProceso`,

@@ -93,6 +93,13 @@
 
 }
 
+.pedidosCurso .pedidosCurso-card{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column
+}
+
 
 
 
@@ -278,3 +285,36 @@
 .pedidosRecibidoscontainer .pedidosRecibidos-card .contenedorCompra .description {
   width: 60%;
 }
+
+.pedidosCursocontainer{
+  margin-bottom: 5%
+}
+
+.pedidosCursocontainer .pedidosCurso-card{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column
+}
+
+.pedidosCursocontainer .pedidosCurso-card .location{
+  margin: 3% 0;
+}
+
+.pedidosCursocontainer .pedidosCurso-card .contenedorCompra{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  margin-bottom: 5%
+}
+
+.pedidosCursocontainer .pedidosCurso-card .contenedorCompra .pedidoAceptarRechazar {
+  width: 40%;
+}
+
+.pedidosCursocontainer .pedidosCurso-card .contenedorCompra .description {
+  width: 60%;
+}  
